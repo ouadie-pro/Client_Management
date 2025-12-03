@@ -2,9 +2,12 @@ const express = require('express');
 const app = express();
 require("dotenv").config();
 const PORT  = process.env.PORT || 3000;
-const connectDB = require('./config/connectionDB')
+const connectDB = require('./config/connectionDB');
+app.set('view engine','ejs')
+app.use(express.static('public'))
+
 app.get('/',(req,res)=>{
-    res.send(`localhost:${PORT},helo ouadie`)
+    res.render('index.ejs',{userName:"ali ouadie"})
 })
 
 
